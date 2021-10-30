@@ -1,5 +1,6 @@
 {
-  "name": "phones",
+  "name": "react-phones-catalogue",
+  "description": "Phones Catalogue with React",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
