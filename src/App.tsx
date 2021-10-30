@@ -1,19 +1,15 @@
 import './App.scss';
+import Header from './Header/Header';
+import Main from './Main/Main';
+import Footer from './Footer/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <a
-          className="link-danger"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+<>
+    <Header />
+    <Main />
+    <Footer />
+</>
   );
 }
 
