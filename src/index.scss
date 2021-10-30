@@ -3,14 +3,18 @@
 
 /* bootstrap customizations */
 $theme-colors: (
-    'danger': $color-mandy
+  'primary': $color-norway,
+  'secondary': $color-flesh,
+  'warning': $color-tangerine,
+  'danger': $color-mandy
 );
 
 /* import bootstrap to set changes */
 @import '~bootstrap/scss/bootstrap';
 
 body {
-  margin: 0;
+  background-color: $color-space;
+  color: lighten($color-flesh, 5%);
   font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
