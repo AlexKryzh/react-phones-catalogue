@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+BEM used for css.
+Every components has stylesheet, but without using react native css modules. 
+We dont use it because the current approach makes code difficult to read.
+
 ## Install Dependencies
 ### `yarn`
 
