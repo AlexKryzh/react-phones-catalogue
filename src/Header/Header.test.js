@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import Header from './Header';
 
 test('renders header title', () => {
-  render(<Header />);
+  render(<BrowserRouter><Header /></BrowserRouter>);
   const titleElement = screen.getByText(/Phones Catalogue/i);
   expect(titleElement).toBeInTheDocument();
 });
