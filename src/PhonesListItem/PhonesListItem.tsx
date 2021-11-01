@@ -1,13 +1,19 @@
 import './PhonesListItem.scss';
 import { Link } from 'react-router-dom';
+import { PhoneModel } from '../shared';
 
-function PhonesListItem() {
+type PhonesListItemProps = {
+    phone: PhoneModel;
+}
+
+function PhonesListItem(props: PhonesListItemProps) {
+    const { phone } = props;
   return (
-  	<span className="phones-list-item">
-		<Link to={'/phone/0'}>
-			<h1>Phone</h1>
-		</Link>
-	</span>
+      <span className="phones-list-item">
+        <Link to={`/phone/${phone.id}`}>
+            <h1>{phone.name}</h1>
+        </Link>
+    </span>
   );
 }
 
