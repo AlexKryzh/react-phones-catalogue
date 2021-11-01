@@ -1,4 +1,4 @@
-export type Phone = {
+export interface PhoneModel {
     id: number;
     name: string;
     manufacter: string;
