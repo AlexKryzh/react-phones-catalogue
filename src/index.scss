@@ -6,7 +6,7 @@ $theme-colors: (
   'primary': $color-norway,
   'secondary': $color-flesh,
   'warning': $color-tangerine,
-  'danger': $color-mandy,
+  'danger': $color-mandy
 );
 
 /* import bootstrap to set changes */
@@ -15,9 +15,8 @@ $theme-colors: (
 body {
   background-color: $color-space;
   color: lighten($color-flesh, 5%);
-  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
