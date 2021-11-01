@@ -1,16 +1,29 @@
 import './App.scss';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
 import Header from './Header/Header';
-import Main from './Main/Main';
+import Phone from './Phone/Phone';
+import PhonesList from './PhonesList/PhonesList';
 import Footer from './Footer/Footer';
 
 function App() {
-  return (
-<>
-    <Header />
-    <Main />
-    <Footer />
-</>
-  );
+    return (
+        <Router>
+            <Header />
+            <Switch>
+                <Route exact path='/'>
+                <PhonesList />
+                </Route>
+                <Route path='/phone'>
+                <Phone />
+                </Route>
+            </Switch>
+            <Footer />
+        </Router>
+    );
 }
 
 export default App;

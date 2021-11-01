@@ -1,9 +1,12 @@
 import './PhonesListItem.scss';
+import { Link } from 'react-router-dom';
 
 function PhonesListItem() {
   return (
   	<span className="phones-list-item">
-		<h1>Phone</h1>
+		  <Link to="/phone">
+			  <h1>Phone</h1>
+		  </Link>
 	</span>
   );
 }
