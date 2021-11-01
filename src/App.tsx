@@ -1,6 +1,5 @@
-import './App.scss';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route
 } from 'react-router-dom';
@@ -11,18 +10,18 @@ import Footer from './Footer/Footer';
 
 function App() {
     return (
-        <Router>
+        <BrowserRouter>
             <Header />
             <Switch>
                 <Route exact path='/'>
-                <PhonesList />
+                    <PhonesList />
                 </Route>
-                <Route path='/phone'>
-                <Phone />
+                <Route path="/phone/:id">
+                    <Phone />
                 </Route>
             </Switch>
             <Footer />
-        </Router>
+        </BrowserRouter>
     );
 }
 
