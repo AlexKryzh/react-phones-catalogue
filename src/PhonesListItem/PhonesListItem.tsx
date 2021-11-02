@@ -11,6 +11,7 @@ function PhonesListItem(props: PhonesListItemProps) {
   return (
     <Link className="phones-list-item" to={`/phone/${phone?.id}`}>
         <h1 className="phones-list-item__title p-2">{phone?.name}</h1>
+        <div className="phones-list-item__price p-2">{phone?.price}</div>
         <img 
             className="phone__image img-thumbnail"
             src={`/phones/${phone?.imageFileName}`} 

@@ -1,7 +1,7 @@
 export interface PhoneModel {
     id: number;
     name: string;
-    manufacter: string;
+    manufacturer: string;
     description: string;
     color: string;
     price: number;
