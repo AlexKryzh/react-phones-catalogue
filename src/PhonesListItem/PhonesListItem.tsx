@@ -9,11 +9,14 @@ type PhonesListItemProps = {
 function PhonesListItem(props: PhonesListItemProps) {
     const { phone } = props;
   return (
-      <span className="phones-list-item">
-        <Link to={`/phone/${phone?.id}`}>
-            <h1 className="phones-list-item__title">{phone?.name}</h1>
-        </Link>
-    </span>
+    <Link className="phones-list-item" to={`/phone/${phone?.id}`}>
+        <h1 className="phones-list-item__title p-2">{phone?.name}</h1>
+        <img 
+            className="phone__image img-thumbnail"
+            src={`/phones/${phone?.imageFileName}`} 
+            alt={phone?.name} 
+        />
+    </Link>
   );
 }
 
