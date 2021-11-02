@@ -1,3 +1,30 @@
+@import '/src/assets/vars';
+
 .phones-list-item {
-  text-align: center;
+  display: block;
+  margin-bottom: 0.5rem;
+  position: relative;
+  text-decoration: none;
+
+  &__title {
+    background-color: rgba($c-electric-blue, 0.8);
+    color: $c-dark-gunmetal;
+    font-size: 1.2rem;
+    font-weight: bold;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  &__hover {
+    display: none;
+  }
+
+  &:hover {
+    .phones-list-item__title {
+      background-color: $c-electric-blue;
+    }
+  }
 }

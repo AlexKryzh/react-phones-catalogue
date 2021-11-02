@@ -1,7 +1,9 @@
 .phones-list {
-  text-align: center;
+  padding-top: 5rem;
 
   &__list {
     list-style: none;
+    margin-top: 1rem;
+    padding-left: 0;
   }
 }

@@ -22,11 +22,11 @@ function PhonesList() {
         init();
     }, [apiUrl]);
     return (
-        <section className="phones-list">
-            <h1>Phones</h1>
-            <ul className="phones-list__list">
+        <section className="phones-list container-lg">
+            <h1>Available Phones</h1>
+            <ul className="phones-list__list row">
                 { phonesData && phonesData.map((phone: PhoneModel) => {
-                    return <li key={phone?.id}><PhonesListItem phone={phone}/></li>
+                    return <li className="col-12 col-sm-6 col-md-4 col-lg-3" key={phone?.id}><PhonesListItem phone={phone}/></li>
                 })
                 }
             </ul>

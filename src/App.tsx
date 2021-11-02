@@ -8,22 +8,25 @@ import Phone from './Phone/Phone';
 import { useAppStore } from './store';
 import PhonesList from './PhonesList/PhonesList';
 import Footer from './Footer/Footer';
+import './App.scss';
 
 function App() {
     const [appState] = useAppStore();
-    console.log(appState);
     return (
         <BrowserRouter>
-            <Header />
-            <Switch>
-                <Route exact path='/'>
-                    <PhonesList />
-                </Route>
-                <Route path="/phone/:id">
-                    <Phone />
-                </Route>
-            </Switch>
-            <Footer />
+            <div className="app d-flex flex-column">
+                <Header />
+                <Switch>
+                    <Route exact path='/'>
+                        <PhonesList />
+                    </Route>
+                    <Route path="/phone/:id">
+                        <Phone />
+                    </Route>
+                </Switch>
+                <Footer />
+                { appState.isLoading && <span>LOADING</span> }
+            </div>
         </BrowserRouter>
     );
 }

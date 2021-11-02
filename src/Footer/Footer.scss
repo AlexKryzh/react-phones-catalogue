@@ -1,3 +1,6 @@
-.Footer {
-  text-align: center;
+@import '/src/assets/vars';
+
+.footer {
+  color:$c-dark-gunmetal;
+  margin-top: auto;
 }

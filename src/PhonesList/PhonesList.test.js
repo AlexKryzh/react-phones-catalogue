@@ -4,6 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 test('renders phones list title', () => {
   render(<BrowserRouter><PhonesList /></BrowserRouter>);
-  const titleElement = screen.getByText(/Phones/i);
+  const titleElement = screen.getByText(/Available Phones/i);
   expect(titleElement).toBeInTheDocument();
 });

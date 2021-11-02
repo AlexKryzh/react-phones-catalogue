@@ -1,18 +1,10 @@
 import './Footer.scss';
 
 function Footer() {
+	const currentYear = 2021;
   return (
-  	<footer className="Footer">
-		<p>
-			<a
-				className="link-danger"
-				href="https://reactjs.org"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-          	Learn React
-        	</a>
-		</p>
+	<footer className="footer py-3">
+		<div className="container-lg text-end">&copy; {currentYear}</div>
 	</footer>
   );
 }
