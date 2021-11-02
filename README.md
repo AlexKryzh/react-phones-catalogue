@@ -2,9 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-BEM used for css.
+## BEM used for css.
 Every components has stylesheet, but without using react native css modules. 
 We dont use it because the current approach makes code difficult to read.
+
+## Future Features
+BD table with manufacturers to filter by manufacture
+BD table with colors to filter by color
+Price range search
+Text search input
+Login and user authentication
+Add/Edit/Delete functionalities
+
 
 ## Install Dependencies
 ### `yarn`
