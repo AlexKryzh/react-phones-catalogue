@@ -34,7 +34,7 @@ function Phone() {
         <main className="phone container-lg">
             { phoneData && <section>
                 <header>
-                    <h1>{phoneData?.name}</h1>
+                    <h1 className="phone__title">{phoneData?.name}</h1>
                 </header>
                 <div className="row">
                     <div className="col-12 col-md-6">
@@ -42,13 +42,24 @@ function Phone() {
                             <img 
                                 className="phone__image"
                                 src={`/phones/${phoneData?.imageFileName}`} 
-                                alt={phoneData?.name} 
+                                alt={phoneData?.name}
                             />   
                             <figcaption>{phoneData?.name}</figcaption>
                         </figure>
                     </div>
-                    <div className="col-12 col-md-6">
-                        content
+                    <div className="phone__info col-12 col-md-6">
+                        <div className="phone__price">{phoneData?.price}</div>
+                        
+                        <div className="phone__description">{phoneData?.description}</div>
+
+                        <div className="phone__details">
+                            <h2 className="phone__subtitle">Details</h2>
+                            <div><span className="phone__label">manufacturer:</span> {phoneData?.manufacturer}</div>
+                            <div><span className="phone__label">color:</span> {phoneData?.color}</div>
+                            <div><span className="phone__label">screen:</span> {phoneData?.screen}</div>
+                            <div><span className="phone__label">processor:</span> {phoneData?.processor}</div>
+                            <div><span className="phone__label">ram:</span> {phoneData?.ram}GB</div>
+                        </div>
                     </div>
                 </div>
             </section>}
