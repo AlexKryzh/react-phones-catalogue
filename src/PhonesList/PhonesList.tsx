@@ -10,7 +10,7 @@ function PhonesList() {
     useEffect(() => {
 
         const init = async() => {
-            const response: HttpResponse<PhoneModel> = await fetch(`${apiUrl}/phones`);
+            const response: HttpResponse = await fetch(`${apiUrl}/phones`);
             if (!response.ok) {
                 const message = `An error has occured: ${response.status}`;
                 throw new Error(message);
@@ -26,7 +26,7 @@ function PhonesList() {
             <h1>Phones</h1>
             <ul className="phones-list__list">
                 { phonesData && phonesData.map((phone: PhoneModel) => {
-                    return <li key={phone.id}><PhonesListItem phone={phone}/></li>
+                    return <li key={phone?.id}><PhonesListItem phone={phone}/></li>
                 })
                 }
             </ul>
