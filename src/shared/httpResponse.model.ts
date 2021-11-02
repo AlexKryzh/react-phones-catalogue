@@ -1,1 +1,1 @@
-export interface HttpResponse<T> extends Response {}
+export interface HttpResponse extends Response {}

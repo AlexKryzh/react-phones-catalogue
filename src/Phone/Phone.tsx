@@ -18,7 +18,7 @@ function Phone() {
 		}
 
 		const init = async() => {
-			const response: HttpResponse<PhoneModel> = await fetch(`${apiUrl}/phones/${id}`);
+			const response: HttpResponse = await fetch(`${apiUrl}/phones/${id}`);
 			if (!response.ok) {
 				const message = `An error has occured: ${response.status}`;
 				throw new Error(message);

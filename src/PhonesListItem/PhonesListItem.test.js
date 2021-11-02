@@ -3,7 +3,6 @@ import PhonesListItem from './PhonesListItem';
 import { BrowserRouter } from 'react-router-dom';
 
 test('renders phones list item title', () => {
-  render(<BrowserRouter><PhonesListItem /></BrowserRouter>);
-  const titleElement = screen.getByText(/Phone/i);
-  expect(titleElement).toBeInTheDocument();
+  const { container } = render(<BrowserRouter><PhonesListItem /></BrowserRouter>);
+  expect(container.getElementsByClassName('phones-list-item__title').length).toBeTruthy();
 });

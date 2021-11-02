@@ -10,8 +10,8 @@ function PhonesListItem(props: PhonesListItemProps) {
     const { phone } = props;
   return (
       <span className="phones-list-item">
-        <Link to={`/phone/${phone.id}`}>
-            <h1>{phone.name}</h1>
+        <Link to={`/phone/${phone?.id}`}>
+            <h1 className="phones-list-item__title">{phone?.name}</h1>
         </Link>
     </span>
   );
