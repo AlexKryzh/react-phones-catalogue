@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import PhonesListItem from '../PhonesListItem/PhonesListItem';
 import { PhoneModel, HttpResponse } from '../shared';
+import { StoreHelper } from '../store';
 import './PhonesList.scss';
 
 function PhonesList() {
@@ -8,15 +9,22 @@ function PhonesList() {
     const apiUrl = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
-
+        const storeHelper = new StoreHelper();
         const init = async() => {
-            const response: HttpResponse = await fetch(`${apiUrl}/phones`);
-            if (!response.ok) {
-                const message = `An error has occured: ${response.status}`;
-                throw new Error(message);
+            try {
+                storeHelper.setIsLoading(true);
+                const response: HttpResponse = await fetch(`${apiUrl}/phones`);
+                if (response.ok) {
+                    const responseData: PhoneModel[] = await response.json();
+                    setPhonesData(responseData);
+                }
             }
-            const responseData: PhoneModel[] = await response.json();
-            setPhonesData(responseData);
+            catch (e: unknown) {
+                console.error('error:', e);
+            }
+            finally {
+                storeHelper.setIsLoading(false);
+            }
         }
 
         init();

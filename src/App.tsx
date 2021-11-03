@@ -5,13 +5,12 @@ import {
 } from 'react-router-dom';
 import Header from './Header/Header';
 import Phone from './Phone/Phone';
-import { useAppStore } from './store';
 import PhonesList from './PhonesList/PhonesList';
+import Loading from './Loading/Loading';
 import Footer from './Footer/Footer';
 import './App.scss';
 
 function App() {
-    const [appState] = useAppStore();
     return (
         <BrowserRouter>
             <div className="app d-flex flex-column">
@@ -25,7 +24,7 @@ function App() {
                     </Route>
                 </Switch>
                 <Footer />
-                { appState.isLoading && <span>LOADING</span> }
+                <Loading />
             </div>
         </BrowserRouter>
     );

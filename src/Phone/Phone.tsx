@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { CatchClause } from 'typescript';
 import { PhoneModel, HttpResponse } from '../shared';
+import { StoreHelper } from '../store';
 import './Phone.scss';
 
 interface RouteParams {
@@ -11,20 +13,28 @@ function Phone() {
     const [ phoneData, setPhoneData ] = useState<PhoneModel>();
     const { id } = useParams<RouteParams>();
     const apiUrl = process.env.REACT_APP_API_URL;
+    
 
     useEffect(() => {
         if (!id) {
             return;
         }
-
+        const storeHelper = new StoreHelper();
         const init = async() => {
-            const response: HttpResponse = await fetch(`${apiUrl}/phones/${id}`);
-            if (!response.ok) {
-                const message = `An error has occured: ${response.status}`;
-                throw new Error(message);
+            try {
+                storeHelper.setIsLoading(true);
+                const response: HttpResponse = await fetch(`${apiUrl}/phones/${id}`);
+                if (response.ok) {
+                    const responseData: PhoneModel = await response.json();
+                    setPhoneData(responseData);
+                }
             }
-            const responseData: PhoneModel = await response.json();
-            setPhoneData(responseData);
+            catch (e: unknown) {
+                console.error('error:', e);
+            }
+            finally {
+                storeHelper.setIsLoading(false);
+            }
         }
 
         init();
