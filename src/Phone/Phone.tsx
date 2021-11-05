@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { PhoneModel, HttpResponse } from '../shared';
+import { PhoneModel, HttpResponse, MessageType } from '../shared';
 import { StoreHelper } from '../store';
 import { useTranslation } from 'react-i18next';
 import './Phone.scss';
@@ -27,10 +27,12 @@ function Phone() {
                 if (response.ok) {
                     const responseData: PhoneModel = await response.json();
                     setPhoneData(responseData);
+                } else {
+                    storeHelper.pushMessage({id: '', type: MessageType.warning, text: 'phone.notFound'});
                 }
             }
             catch (e: unknown) {
-                console.error('error:', e);
+                storeHelper.pushMessage({id: '', type: MessageType.danger, text: 'page.serverError'});
             }
             finally {
                 storeHelper.setIsLoading(false);
