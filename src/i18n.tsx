@@ -11,7 +11,7 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
-    debug: true,
+    debug: false,
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
@@ -22,7 +22,9 @@ i18n
           page: {
             title: 'Phones Catalogue',
             home: 'Home',
-            changeLang: 'Change Language'
+            changeLang: 'Change Language',
+            langChanged: 'Language Changed',
+            serverError: 'Server Error'
           },
           phone: {
             title: 'Available Phones',
@@ -33,7 +35,8 @@ i18n
             color: 'color',
             screen: 'screen',
             processor: 'processor',
-            ram: 'ram'
+            ram: 'ram',
+            notFound: 'Item not Found'
           }
         }
       },
@@ -42,7 +45,9 @@ i18n
           page: {
             title: 'Catálogo de Teléfonos',
             home: 'Inicio',
-            changeLang: 'Cambiar Idioma'
+            changeLang: 'Cambiar Idioma',
+            langChanged: 'Idioma cambiado',
+            serverError: 'Error de Servidor'
           },
           phone: {
             title: 'Teléfonos Disponibles',
@@ -53,7 +58,8 @@ i18n
             color: 'color',
             screen: 'pantalla',
             processor: 'procesador',
-            ram: 'ram'
+            ram: 'ram',
+            notFound: 'Item no encontrado'
           }
         }
       }

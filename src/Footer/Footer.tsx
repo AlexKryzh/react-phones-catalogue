@@ -1,5 +1,7 @@
 import { useCallback } from 'react';
 import { langs, ILang } from '../shared';
+import { MessageType } from '../shared';
+import { StoreHelper } from '../store';
 import { useTranslation } from 'react-i18next';
 import './Footer.scss';
 
@@ -9,6 +11,8 @@ function Footer() {
     const { t, i18n } = useTranslation();
     const setLanguage = useCallback(
         (lang: string) => {
+            const storeHelper = new StoreHelper();
+            storeHelper.pushMessage({id: '', type: MessageType.info, text: 'page.langChanged'});
             return i18n.changeLanguage(lang);
         }, [i18n]);
 

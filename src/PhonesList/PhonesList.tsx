@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PhonesListItem from '../PhonesListItem/PhonesListItem';
-import { PhoneModel, HttpResponse } from '../shared';
+import { PhoneModel, HttpResponse, MessageType } from '../shared';
 import { useTranslation } from 'react-i18next';
 import { StoreHelper } from '../store';
 import './PhonesList.scss';
@@ -19,10 +19,12 @@ function PhonesList() {
                 if (response.ok) {
                     const responseData: PhoneModel[] = await response.json();
                     setPhonesData(responseData);
+                } else {
+                    storeHelper.pushMessage({id: '', type: MessageType.warning, text: 'phone.notFound'});
                 }
             }
             catch (e: unknown) {
-                console.error('error:', e);
+                storeHelper.pushMessage({id: '', type: MessageType.danger, text: 'page.serverError'});
             }
             finally {
                 storeHelper.setIsLoading(false);
