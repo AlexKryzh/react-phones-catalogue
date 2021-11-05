@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { PhoneModel, HttpResponse, MessageType } from '../shared';
 import { StoreHelper } from '../store';
@@ -14,6 +14,11 @@ function Phone() {
     const { id } = useParams<RouteParams>();
     const apiUrl = process.env.REACT_APP_API_URL;
     const { t } = useTranslation();
+    const addToShopcart = useCallback(
+        () => {
+            const storeHelper = new StoreHelper();
+            storeHelper.pushMessage({id: '', type: MessageType.warning, text: 'phone.shoppingcartInfo'});
+        }, []);
 
     useEffect(() => {
         if (!id) {
@@ -60,7 +65,19 @@ function Phone() {
                         </figure>
                     </div>
                     <div className="phone__info col-12 col-md-6">
-                        <div className="phone__price">{phoneData?.price}</div>
+                        <div className="row">
+                            <div className="col-12 col-sm-6 text-center text-sm-start mb-2">
+                                <button 
+                                    type="button" 
+                                    className="btn btn-danger btn-lg"
+                                    onClick={() => addToShopcart()}
+                                    >{t('phone.addToShoppingcart')}</button>
+                            </div>
+
+                            <div className="phone__price col-12 col-sm-6 text-center text-sm-end">
+                            { new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(phoneData?.price)}
+                            </div>
+                        </div>
                         
                         <div className="phone__description">{phoneData?.description}</div>
 

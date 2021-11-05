@@ -8,36 +8,19 @@
   transition: transform ease-in 100ms;
 
   &__title {
-    background-color: rgba($c-electric-blue, 0.8);
-    border-top-right-radius: 0.25rem;
-    border-top-left-radius: 0.25rem;
-    color: $c-dark-gunmetal;
     font-size: 1.2rem;
     font-weight: bold;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 10;
+    color: $c-dark-gunmetal;
   }
 
   &__price {
-    bottom: 0;
     color: $c-dark-gunmetal;
     font-size: 1.5rem;
     font-weight: bold;
-    left: 0;
-    position: absolute;
-    text-shadow: 0 0 10px $c-white;
-    width: 100%;
-    z-index: 10;
+    text-shadow: 1px 1px 0 $c-white;
   }
 
   &:hover {
     transform: scale(1.05);
-
-    .phones-list-item__title {
-      background-color: rgba($c-electric-blue, 0.97);
-    }
   }
 }

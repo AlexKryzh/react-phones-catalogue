@@ -9,9 +9,8 @@ function Loading() {
     const alertTypes: string[] = ['primary', 'warning', 'danger'];
 
     return (
-        <>
-        { appState.messages.length > 0 && <aside className="messages">
-            <ul className="p-0 m-0">
+        <aside className="messages">
+        { appState.messages.length > 0 && <ul className="p-0 m-0">
                 { appState.messages.map((message: IMessage) => {
                     return <div 
                         key={message.id} 
@@ -21,9 +20,8 @@ function Loading() {
                   </div>
                 })}
             </ul>
-        </aside>
         }
-        </>
+        </aside>
     );
 }
 

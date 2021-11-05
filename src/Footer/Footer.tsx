@@ -11,6 +11,9 @@ function Footer() {
     const { t, i18n } = useTranslation();
     const setLanguage = useCallback(
         (lang: string) => {
+            if (lang === i18n.resolvedLanguage) {
+                return;
+            }
             const storeHelper = new StoreHelper();
             storeHelper.pushMessage({id: '', type: MessageType.info, text: 'page.langChanged'});
             return i18n.changeLanguage(lang);

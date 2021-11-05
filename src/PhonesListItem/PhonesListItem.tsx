@@ -16,13 +16,15 @@ function PhonesListItem(props: PhonesListItemProps) {
             className="phones-list-item"
             title={t('phone.seeInfo', { phone: phone?.name})} 
             to={`/phone/${phone?.id}`}>
-            <h1 className="phones-list-item__title p-2">{phone?.name}</h1>
-            <div className="phones-list-item__price p-2">{phone?.price}</div>
-            <img 
-                className="phone__image img-thumbnail"
-                src={`/phones/${phone?.imageFileName}`} 
-                alt={phone?.name} 
-            />
+            <h1 className="phones-list-item__title p-2 text-truncate">{phone?.name}</h1>
+            <div>
+                <img 
+                    className="phone__image img-thumbnail"
+                    src={`/phones/${phone?.imageFileName}`} 
+                    alt={phone?.name} 
+                />
+            </div>
+            <div className="phones-list-item__price p-2 text-end">{ new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(phone?.price)}</div>
         </Link>
     );
 }
