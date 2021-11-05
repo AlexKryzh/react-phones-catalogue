@@ -3,4 +3,15 @@
 .footer {
   color: $c-dark-gunmetal;
   margin-top: auto;
+
+  &__lang {
+    color: $c-dark-gunmetal;
+    cursor: pointer;
+    text-decoration: none;
+
+    &.is-active {
+      color: $c-spanish-gray;
+      cursor: default;
+    }
+  }
 }

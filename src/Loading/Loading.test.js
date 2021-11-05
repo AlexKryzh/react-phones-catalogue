@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
-import Footer from './Footer';
+import Loading from './Loading';
 
-test('renders header title', () => {
-  const { container } = render(<Footer />);
+test('renders aside tagname', () => {
+  const { container } = render(<Loading />);
   expect(container.getElementsByTagName('aside')[0]).toBeInTheDocument();
 });
