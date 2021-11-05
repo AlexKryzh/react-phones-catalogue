@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { CatchClause } from 'typescript';
 import { PhoneModel, HttpResponse } from '../shared';
 import { StoreHelper } from '../store';
+import { useTranslation } from 'react-i18next';
 import './Phone.scss';
 
 interface RouteParams {
@@ -13,7 +13,7 @@ function Phone() {
     const [ phoneData, setPhoneData ] = useState<PhoneModel>();
     const { id } = useParams<RouteParams>();
     const apiUrl = process.env.REACT_APP_API_URL;
-    
+    const { t } = useTranslation();
 
     useEffect(() => {
         if (!id) {
@@ -54,7 +54,7 @@ function Phone() {
                                 src={`/phones/${phoneData?.imageFileName}`} 
                                 alt={phoneData?.name}
                             />   
-                            <figcaption>{phoneData?.name}</figcaption>
+                            <figcaption>{t('phone.figCaption', { phone: phoneData?.name })}</figcaption>
                         </figure>
                     </div>
                     <div className="phone__info col-12 col-md-6">
@@ -63,12 +63,12 @@ function Phone() {
                         <div className="phone__description">{phoneData?.description}</div>
 
                         <div className="phone__details">
-                            <h2 className="phone__subtitle">Details</h2>
-                            <div><span className="phone__label">manufacturer:</span> {phoneData?.manufacturer}</div>
-                            <div><span className="phone__label">color:</span> {phoneData?.color}</div>
-                            <div><span className="phone__label">screen:</span> {phoneData?.screen}</div>
-                            <div><span className="phone__label">processor:</span> {phoneData?.processor}</div>
-                            <div><span className="phone__label">ram:</span> {phoneData?.ram}GB</div>
+                            <h2 className="phone__subtitle">{t('phone.details')}</h2>
+                            <div><span className="phone__label">{t('phone.manufacturer')}:</span> {phoneData?.manufacturer}</div>
+                            <div><span className="phone__label">{t('phone.color')}:</span> {phoneData?.color}</div>
+                            <div><span className="phone__label">{t('phone.screen')}:</span> {phoneData?.screen}</div>
+                            <div><span className="phone__label">{t('phone.processor')}:</span> {phoneData?.processor}</div>
+                            <div><span className="phone__label">{t('phone.ram')}:</span> {phoneData?.ram}GB</div>
                         </div>
                     </div>
                 </div>

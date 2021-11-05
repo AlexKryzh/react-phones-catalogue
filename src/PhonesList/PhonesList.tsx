@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import PhonesListItem from '../PhonesListItem/PhonesListItem';
 import { PhoneModel, HttpResponse } from '../shared';
+import { useTranslation } from 'react-i18next';
 import { StoreHelper } from '../store';
 import './PhonesList.scss';
 
 function PhonesList() {
     const [ phonesData, setPhonesData ] = useState<PhoneModel[]>();
     const apiUrl = process.env.REACT_APP_API_URL;
+    const { t } = useTranslation();
 
     useEffect(() => {
         const storeHelper = new StoreHelper();
@@ -31,7 +33,7 @@ function PhonesList() {
     }, [apiUrl]);
     return (
         <section className="phones-list container-lg">
-            <h1>Available Phones</h1>
+            <h1>{t('phone.title')}</h1>
             <ul className="phones-list__list row">
                 { phonesData && phonesData.map((phone: PhoneModel) => {
                     return <li className="col-12 col-sm-6 col-md-4 col-lg-3" key={phone?.id}><PhonesListItem phone={phone}/></li>
