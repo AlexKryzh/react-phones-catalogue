@@ -36,7 +36,9 @@ i18n
             screen: 'screen',
             processor: 'processor',
             ram: 'ram',
-            notFound: 'Item not Found'
+            notFound: 'Item not Found',
+            addToShoppingcart: 'Add to Shopping Cart',
+            shoppingcartInfo: 'Shopping Cart is not available...'
           }
         }
       },
@@ -59,7 +61,9 @@ i18n
             screen: 'pantalla',
             processor: 'procesador',
             ram: 'ram',
-            notFound: 'Item no encontrado'
+            notFound: 'Item no encontrado',
+            addToShoppingcart: 'Agregar al Carrito',
+            shoppingcartInfo: 'Carrito de compra no disponible...'
           }
         }
       }
