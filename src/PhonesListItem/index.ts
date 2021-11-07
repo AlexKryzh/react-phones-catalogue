@@ -1,0 +1,1 @@
+export {default as PhonesListItem} from './PhonesListItem';

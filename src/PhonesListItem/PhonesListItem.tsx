@@ -1,7 +1,7 @@
 import './PhonesListItem.scss';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { PhoneModel } from '../shared';
+import { PhoneModel } from 'shared';
 
 type PhonesListItemProps = {
     phone: PhoneModel;

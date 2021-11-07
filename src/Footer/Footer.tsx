@@ -1,7 +1,6 @@
 import { useCallback } from 'react';
-import { langs, ILang } from '../shared';
-import { MessageType } from '../shared';
-import { StoreHelper } from '../store';
+import { langs, ILang, MessageType } from 'shared';
+import { StoreHelper } from 'store';
 import { useTranslation } from 'react-i18next';
 import './Footer.scss';
 
@@ -23,7 +22,7 @@ function Footer() {
         <footer className="footer py-3">
             <div className="container-lg">
                 <div className="row">
-                    <div className="col-12 col-sm-6">
+                    <div className="footer__langs col-12 col-sm-6">
                         <ul className="ps-0 mb-sm-0">
                         { langs && Object.keys(langs as ILang)
                             .map((lang: string) => 
@@ -38,7 +37,7 @@ function Footer() {
                             )}
                         </ul>
                     </div>
-                    <div className="col-12 col-sm-6 text-start text-sm-end">
+                    <div className="footer__year col-12 col-sm-6 text-start text-sm-end">
                         &copy; {currentYear}
                     </div>
                 </div>
