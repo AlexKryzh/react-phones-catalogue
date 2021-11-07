@@ -1,4 +1,4 @@
-import { useAppStore } from '../store';
+import { useAppStore } from 'store';
 import './Loading.scss';
 
 function Loading() {

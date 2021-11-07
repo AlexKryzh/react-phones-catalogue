@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-import PhonesListItem from '../PhonesListItem/PhonesListItem';
-import { PhoneModel, HttpResponse, MessageType } from '../shared';
+import { PhonesListItem } from 'PhonesListItem';
+import { PhoneModel, HttpService, HttpResponse } from 'shared';
 import { useTranslation } from 'react-i18next';
-import { StoreHelper } from '../store';
 import './PhonesList.scss';
 
 function PhonesList() {
@@ -11,23 +10,12 @@ function PhonesList() {
     const { t } = useTranslation();
 
     useEffect(() => {
-        const storeHelper = new StoreHelper();
+        const httpService = new HttpService();
         const init = async() => {
-            try {
-                storeHelper.setIsLoading(true);
-                const response: HttpResponse = await fetch(`${apiUrl}/phones`);
-                if (response.ok) {
-                    const responseData: PhoneModel[] = await response.json();
-                    setPhonesData(responseData);
-                } else {
-                    storeHelper.pushMessage({id: '', type: MessageType.warning, text: 'phone.notFound'});
-                }
-            }
-            catch (e: unknown) {
-                storeHelper.pushMessage({id: '', type: MessageType.danger, text: 'page.serverError'});
-            }
-            finally {
-                storeHelper.setIsLoading(false);
+            const response: HttpResponse = await httpService.get(`/phones`);
+            if (response.ok) {
+                const responseData: PhoneModel[] = await response.json();
+                setPhonesData(responseData);
             }
         }
 

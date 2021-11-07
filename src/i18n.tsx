@@ -24,7 +24,8 @@ i18n
             home: 'Home',
             changeLang: 'Change Language',
             langChanged: 'Language Changed',
-            serverError: 'Server Error'
+            apiNotFound: 'Not found',
+            apiError: 'Api returned an Error'
           },
           phone: {
             title: 'Available Phones',
@@ -49,7 +50,8 @@ i18n
             home: 'Inicio',
             changeLang: 'Cambiar Idioma',
             langChanged: 'Idioma cambiado',
-            serverError: 'Error de Servidor'
+            apiNotFound: 'No encontrado',
+            apiError: 'Api ha devuelto un error'
           },
           phone: {
             title: 'Teléfonos Disponibles',

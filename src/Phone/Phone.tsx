@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-import { PhoneModel, HttpResponse, MessageType } from '../shared';
-import { StoreHelper } from '../store';
+import { PhoneModel, MessageType, HttpService, HttpResponse } from 'shared';
+import { StoreHelper } from 'store';
 import { useTranslation } from 'react-i18next';
 import './Phone.scss';
 
@@ -12,7 +12,6 @@ interface RouteParams {
 function Phone() {
     const [ phoneData, setPhoneData ] = useState<PhoneModel>();
     const { id } = useParams<RouteParams>();
-    const apiUrl = process.env.REACT_APP_API_URL;
     const { t } = useTranslation();
     const addToShopcart = useCallback(
         () => {
@@ -24,28 +23,19 @@ function Phone() {
         if (!id) {
             return;
         }
-        const storeHelper = new StoreHelper();
+
+        const httpService = new HttpService();
+        
         const init = async() => {
-            try {
-                storeHelper.setIsLoading(true);
-                const response: HttpResponse = await fetch(`${apiUrl}/phones/${id}`);
-                if (response.ok) {
-                    const responseData: PhoneModel = await response.json();
-                    setPhoneData(responseData);
-                } else {
-                    storeHelper.pushMessage({id: '', type: MessageType.warning, text: 'phone.notFound'});
-                }
-            }
-            catch (e: unknown) {
-                storeHelper.pushMessage({id: '', type: MessageType.danger, text: 'page.serverError'});
-            }
-            finally {
-                storeHelper.setIsLoading(false);
+            const response: HttpResponse = await httpService.get(`/phones/${id}`);
+            if (response.ok) {
+                const responseData: PhoneModel = await response.json();
+                setPhoneData(responseData);
             }
         }
 
         init();
-    }, [id, apiUrl]);
+    }, [id]);
 
     return (
         <main className="phone container-lg">
