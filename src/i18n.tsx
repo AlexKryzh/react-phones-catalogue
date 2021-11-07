@@ -25,7 +25,9 @@ i18n
             changeLang: 'Change Language',
             langChanged: 'Language Changed',
             apiNotFound: 'Not found',
-            apiError: 'Api returned an Error'
+            apiError: 'Api returned an Error',
+            notFound: 'Page Not Found',
+            loading: 'Loading'
           },
           phone: {
             title: 'Available Phones',
@@ -51,7 +53,9 @@ i18n
             changeLang: 'Cambiar Idioma',
             langChanged: 'Idioma cambiado',
             apiNotFound: 'No encontrado',
-            apiError: 'Api ha devuelto un error'
+            apiError: 'Api ha devuelto un error',
+            notFound: 'Página no encontrada',
+            loading: 'Cargando'
           },
           phone: {
             title: 'Teléfonos Disponibles',
