@@ -13,7 +13,9 @@ BD table with colors to filter by color\
 Price range search\
 Text search input\
 Login and user authentication\
-Add/Edit/Delete functionalities
+Add/Edit/Delete functionalities\
+Manage image files uploads to server\
+Shopping Cart
 
 
 ## Install Dependencies
