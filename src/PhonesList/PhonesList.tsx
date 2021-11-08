@@ -13,7 +13,7 @@ function PhonesList() {
         const httpService = new HttpService();
         const init = async() => {
             const response: HttpResponse = await httpService.get(`/phones`);
-            if (response.ok) {
+            if (response && response.ok) {
                 const responseData: PhoneModel[] = await response.json();
                 setPhonesData(responseData);
             }
@@ -21,12 +21,13 @@ function PhonesList() {
 
         init();
     }, [apiUrl]);
+
     return (
         <section className="phones-list container-lg">
             <h1>{t('phone.title')}</h1>
             <ul className="phones-list__list row">
                 { phonesData && phonesData.map((phone: PhoneModel) => {
-                    return <li className="col-12 col-sm-6 col-md-4 col-lg-3" key={phone?.id}><PhonesListItem phone={phone}/></li>
+                    return <li className="phones-list__item col-12 col-sm-6 col-md-4 col-lg-3" key={phone?.id}><PhonesListItem phone={phone}/></li>
                 })
                 }
             </ul>

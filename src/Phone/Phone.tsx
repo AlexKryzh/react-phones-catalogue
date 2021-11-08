@@ -28,7 +28,7 @@ function Phone() {
         
         const init = async() => {
             const response: HttpResponse = await httpService.get(`/phones/${id}`);
-            if (response.ok) {
+            if (response && response.ok) {
                 const responseData: PhoneModel = await response.json();
                 setPhoneData(responseData);
             }
