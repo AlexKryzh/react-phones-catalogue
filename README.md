@@ -7,6 +7,7 @@ Every components has stylesheet, but without using react native css modules.
 We dont use it because the current approach makes code difficult to read.
 
 ## TODO
+Pass tests to typescript
 Move translations to separate JSON files\
 BD table with manufacturers to filter by manufacture\
 BD table with colors to filter by color\
@@ -24,6 +25,11 @@ Shopping Cart
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `yarn server`
+
+Runs api at [http://localhost:3004](http://localhost:3004).
+
 
 ### `yarn start`
 
