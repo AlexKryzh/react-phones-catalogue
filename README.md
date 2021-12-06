@@ -7,7 +7,7 @@ Every components has stylesheet, but without using react native css modules.
 We dont use it because the current approach makes code difficult to read.
 
 ## TODO
-Pass tests to typescript
+Pass tests to typescript\
 Move translations to separate JSON files\
 BD table with manufacturers to filter by manufacture\
 BD table with colors to filter by color\
