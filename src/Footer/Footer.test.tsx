@@ -15,8 +15,8 @@ describe('Footer Component', () => {
 
     test('has current year', () => {
         const { container } = render(<Footer />);
-        const today = new Date();
-        const currentYear = today.getFullYear().toString();
+        const today: Date = new Date();
+        const currentYear: string = today.getFullYear().toString();
         expect(container.getElementsByClassName('footer__year')[0].textContent).toEqual(expect.stringContaining(currentYear));
     });
 });

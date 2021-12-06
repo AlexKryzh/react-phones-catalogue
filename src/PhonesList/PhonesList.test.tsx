@@ -1,9 +1,11 @@
 import { render, cleanup, waitFor } from '@testing-library/react';
 import PhonesList from './PhonesList';
 import { BrowserRouter } from 'react-router-dom';
+import { PhoneModel } from 'shared';
 import fetchMock from 'jest-fetch-mock';
+import fetch from 'jest-fetch-mock';
 
-const phones = [{
+const phones: PhoneModel[] = [{
     id: 0,
     name: 'iPhone 7',
     manufacturer: 'Apple',

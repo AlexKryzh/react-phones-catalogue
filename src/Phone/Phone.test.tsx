@@ -1,7 +1,9 @@
 import { render, cleanup, waitFor } from '@testing-library/react';
 import Phone from './Phone';
 import { BrowserRouter } from 'react-router-dom';
+import { PhoneModel } from 'shared';
 import fetchMock from 'jest-fetch-mock';
+import fetch from 'jest-fetch-mock';
 
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
@@ -11,8 +13,7 @@ jest.mock('react-router-dom', () => ({
     useRouteMatch: () => ({ url: '/phone/0' }),
 }));
 
-const phone = {
-    ok: true,
+const phone: PhoneModel = {
     id: 0,
     name: 'iPhone 7',
     manufacturer: 'Apple',
