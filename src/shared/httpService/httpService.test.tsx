@@ -1,11 +1,12 @@
 import { HttpService } from './httpService';
 import fetchMock from 'jest-fetch-mock';
+import fetch from 'jest-fetch-mock';
 
 describe('HttpService', () => {
     fetchMock.enableMocks();
     const httpService = new HttpService();
-    const apiUrl = 'http://localhost:3004';
-    const url = '/test';
+    const apiUrl: string = 'http://localhost:3004';
+    const url: string = '/test';
 
     beforeEach(() => {
         fetch.resetMocks();
