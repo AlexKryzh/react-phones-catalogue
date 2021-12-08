@@ -14,7 +14,8 @@ function PhonesListItem(props: PhonesListItemProps) {
     return (
         <Link 
             className="phones-list-item"
-            title={t('phone.seeInfo', { phone: phone?.name})} 
+            title={t('phone.seeInfo', { phone: phone?.name})}
+            data-cy="phone-link"
             to={`/phone/${phone?.id}`}>
             <h1 className="phones-list-item__title p-2 text-truncate">{phone?.name}</h1>
             <div>
