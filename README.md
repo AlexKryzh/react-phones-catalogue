@@ -7,7 +7,6 @@ Every components has stylesheet, but without using react native css modules.
 We dont use it because the current approach makes code difficult to read.
 
 ## TODO
-Pass tests to typescript\
 Move translations to separate JSON files\
 BD table with manufacturers to filter by manufacture\
 BD table with colors to filter by color\
@@ -15,7 +14,6 @@ Price range search\
 Text search input\
 Login and user authentication\
 Add/Edit/Delete functionalities\
-Manage image files uploads to server\
 Shopping Cart
 
 
@@ -53,6 +51,10 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn e2e`
+
+Run e2e cypress tests.
 
 ### `yarn lint`
 
